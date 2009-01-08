@@ -1,0 +1,24 @@
+{% extends 'admin/base_site.html' %}
+{% block title %}Tölvupósturinn var {% if not email_did_succeed %}ekki{%endif%} sendur! {{ block.super }}{% endblock %}
+
+{% block content %}
+<h1>Tölvupósturinn var {% if not email_did_succeed %}ekki{% endif %} sendur!</h1>
+{% if email_did_succeed %}
+<p>Það tókst að senda eftirfarandi tölvupóst á</p>
+{% else %}
+<p>Það tókst því miður ekki að senda eftirfarandi tölvupóst á</p>
+{% endif %}
+<ul>
+{% for email in email_recipients %}
+    <li>{{ email }}</li>
+{% endfor %}
+</ul>
+
+<p>Tölvupósturinn bar titilinn <strong>{{ email_subject }}</strong> og hafði þetta meginmál:</p>
+<pre>
+{{ email_body }}
+</pre>
+<p>
+Núna er eðlilegt að fara á <a href="/vefstjorn/">forsíðu vefumsjónarkerfisins</a> og halda áfram að gera eitthvað gagnlegt.
+</p>
+{% endblock %}
