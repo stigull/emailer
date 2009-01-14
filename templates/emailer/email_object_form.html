@@ -1,7 +1,7 @@
 <form class="email-object-form" method="post" action="{% url email-object %}">
     <fieldset>
-        <legend>Senda þennan hlut sem tölvupóst</legend>
+        <legend>{{ legend }}</legend>
         {{ form.as_ul }}
-        <input type="submit" value="Senda tölvupóst" />
+        <input type="submit" value="{{ submit_label }}" />
     </fieldset>
 </form>
