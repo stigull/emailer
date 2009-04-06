@@ -9,12 +9,13 @@ class Emailer(object):
         self.from_email = from_email
 
     def send_single_email(self, to, subject, template, context):
-        pass
+        raise NotImplementedError()
 
     def send_email(self, to, subject, template, context):
         body = render_to_string(template, context)
 
         print to, subject, body
+        raise NotImplementedError()
 
     def send_mass_mail(self, to, subject, template, context):
         datalist = []
