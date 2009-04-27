@@ -4,10 +4,10 @@ from django.shortcuts import render_to_response
 from emailer.classes import Emailer
 
 class SendAction(object):
-    def __init__(self, request, queryset):
+    def __init__(self, request, instance):
         self.emailer = Emailer()
         self.request = request
-        self.instance = queryset[0]
+        self.instance = instance
 
     def process(self):
         self.process_instance(self.instance)
